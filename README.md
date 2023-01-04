@@ -32,12 +32,6 @@ Você precisará ter o seguinte instalado em sua máquina local:
 
 * Docker
 
-```sh
-docker compose up -d
-```
-
-### Para criar e executar o projeto, siga estas etapas
-
 1. Clone o repositório:
 
     ```sh
@@ -47,16 +41,22 @@ docker compose up -d
 2. Navegue até o diretório do projeto:
 
     ```sh
-    cd spring-boot-security-jwt
+    cd spring-boot-3-security-jwt
     ```
 
-3. Compile o projeto:
+3. Execute o compose:
+
+    ```sh
+    docker compose up -d
+    ```
+
+4. Compile o projeto:
 
     ```sh
     ./mvnw clean install
     ```
 
-4. Execute o projeto:
+5. Execute o projeto:
 
     ```sh
     ./mvnw spring-boot:run
@@ -64,7 +64,7 @@ docker compose up -d
 
 ## Endpoints
 
-Utilize um cliente de requisições HTTP como o *Postman* ou a extensão *REST Client* para VSCode e faça os testes no arquivo [api.rest](/api.rest).
+Utilize um cliente de requisições HTTP como o ***Postman*** ou a extensão ***REST Client*** para VSCode e faça os testes no arquivo [api.rest](/api.rest).
 
 * **Protegido**
 
