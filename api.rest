@@ -22,8 +22,8 @@ POST {{baseUrl}}/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "fistname": "test",
-    "lastname": "test",
+    "fistName": "test",
+    "lastName": "test",
     "email": "test@email.com",
     "password": "test123"
 }

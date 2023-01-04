@@ -28,25 +28,77 @@ Demostração da implementação de segurança usando Spring Boot 3.0 e JSON Web
 
 Você precisará ter o seguinte instalado em sua máquina local:
 
+* Java JDK 17+
+
 * Docker
 
 ```sh
 docker compose up -d
 ```
 
-ou
-
-* Java JDK 17+
-
-* Maven 3+
-
-* Postgres (Necessário configurar conexão)*
-
 ### Para criar e executar o projeto, siga estas etapas
 
-Clone o repositório: git clone <https://github.com/natanaelsc/spring-boot-3-jwt-security.git>
-Navegue até o diretório do projeto: cd spring-boot-security-jwt
-Compile o projeto: mvn clean install
-Execute o projeto: mvn spring-boot:run
+1. Clone o repositório:
 
-→ O aplicativo estará disponível em <http://localhost:8080>.
+    ```sh
+    git clone https://github.com/natanaelsc/spring-boot-3-jwt-security.git
+    ```
+
+2. Navegue até o diretório do projeto:
+
+    ```sh
+    cd spring-boot-security-jwt
+    ```
+
+3. Compile o projeto:
+
+    ```sh
+    ./mvnw clean install
+    ```
+
+4. Execute o projeto:
+
+    ```sh
+    ./mvnw spring-boot:run
+    ```
+
+## Endpoints
+
+Utilize um cliente de requisições HTTP como o *Postman* ou a extensão *REST Client* para VSCode e faça os testes no arquivo [api.rest](/api.rest).
+
+* **Protegido**
+
+```http
+GET http://localhost:8080/api/v1/demo-controller HTTP/1.1
+Authorization: Bearer {{token}}
+```
+
+* **Autenticação**
+
+```http
+POST http://localhost:8080/api/v1/auth/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test@email.com",
+    "password": "test123"
+}
+```
+
+* **Registro**
+
+```http
+POST http://localhost:8080/api/v1/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "fistName": "test",
+    "lastName": "test",
+    "email": "test@email.com",
+    "password": "test123"
+}
+```
+
+## Referência
+
+<https://www.youtube.com/watch?v=KxqlJblhzfI>
