@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  postgres:
+    image: postgres:10-alpine
+    restart: unless-stopped
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    links:
+      - postgres
+    ports:
+      - 8082:8080
+
+volumes:
+  pgdata:
